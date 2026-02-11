@@ -36,7 +36,7 @@ export function ChatProvider({
   const {
     messages,
     input,
-    handleInputChange,
+    setInput,
     handleSubmit,
     status,
   } = useAIChat({
@@ -50,6 +50,10 @@ export function ChatProvider({
       handleToolCall(toolCall);
     },
   });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+  };
 
   // Track anonymous work
   useEffect(() => {
